@@ -1,153 +1,218 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="ja">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
+<title>アーティスト・ギャラリーサイト向け 無料ホームページテンプレート tp_gallery2</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chancy · 作品与活动</title>
-<meta name="description" content="Chancy 的个人网站：作品、研究与活动记录。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#F1F3F2; --ink:#16202A; --muted:#5B6773; --line:#D2D8DB; --accent:#1F4FD8; --chip:#E3E8EA;
-  --serif:"Noto Serif SC","Songti SC","Source Han Serif SC",Georgia,serif;
-  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
-}
-@media (prefers-color-scheme:dark){
-  :root{--bg:#10171E; --ink:#E8ECEF; --muted:#9AA7B2; --line:#27323C; --accent:#7C9BFF; --chip:#1B252E}
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.75 var(--sans)}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.wrap{max-width:760px;margin:0 auto;padding:0 22px}
-nav{display:flex;gap:22px;padding:22px 0;font-size:15px}
-nav a{text-decoration:none;color:var(--muted)}
-nav a:hover{color:var(--ink)}
-header.hero{padding:56px 0 48px}
-h1{font:700 clamp(40px,9vw,68px)/1.1 var(--serif);margin:0 0 18px;letter-spacing:-.01em}
-.lead{font:500 clamp(19px,3.4vw,24px)/1.6 var(--serif);max-width:30em;margin:0 0 14px}
-.sub{color:var(--muted);margin:0;max-width:34em}
-section{padding:44px 0;border-top:1px solid var(--line)}
-h2{font:700 26px/1.3 var(--serif);margin:0 0 20px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
-.chips button{font:inherit;font-size:14px;padding:4px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
-.chips button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.work{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:18px 0;border-bottom:1px solid var(--line)}
-.work h3{font:700 19px/1.4 var(--serif);margin:0}
-.work h3 a{text-decoration:none;border-bottom:1px solid var(--accent)}
-.work h3 a:hover{color:var(--accent)}
-.work time{color:var(--muted);font-size:14px;white-space:nowrap;padding-top:3px}
-.work p{grid-column:1/-1;margin:4px 0 0;color:var(--muted)}
-.tag{display:inline-block;margin-top:8px;font-size:13px;padding:0 10px;border-radius:999px;background:var(--chip);color:var(--muted)}
-.timeline{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px solid var(--line)}
-.timeline li{position:relative;padding:0 0 28px}
-.timeline li::before{content:"";position:absolute;left:-29px;top:10px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
-.timeline time{display:block;color:var(--muted);font-size:14px}
-.timeline b{font:700 18px/1.5 var(--serif)}
-.timeline p{margin:2px 0 0;color:var(--muted)}
-.links{display:flex;flex-wrap:wrap;gap:10px 26px;margin:0;padding:0;list-style:none}
-.links a{border-bottom:1px solid var(--accent);text-decoration:none}
-footer{padding:30px 0 60px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
-</style>
+<meta name="description" content="ここにサイト説明を入れます">
+<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<div class="wrap">
-  <nav aria-label="页面导航">
-    <a href="#works">作品</a><a href="#activities">活动</a><a href="#contact">联系</a>
-  </nav>
 
-  <header class="hero">
-    <h1 id="name"></h1>
-    <p class="lead" id="tagline"></p>
-    <p class="sub" id="intro"></p>
-  </header>
+<body class="home">
 
-  <section id="works">
-    <h2>作品</h2>
-    <div class="chips" id="filters" role="group" aria-label="按类别筛选"></div>
-    <div id="workList"></div>
-  </section>
+<div id="container">
 
-  <section id="activities">
-    <h2>活动</h2>
-    <ol class="timeline" id="timeline"></ol>
-  </section>
+<header>
+<h1 id="logo"><a href="index.html">
+<svg id="svg-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1700 500" style="enable-background:new 0 0 1700 500;" xml:space="preserve">
+<image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/logo.svg" width="100%" height="100%" mask="url(#clipmask)"></image>
+<mask id="clipmask" maskUnits="objectBoundingBox">
+<path d="M184.54,125.12c25.8-28.5,32.2-42.1-5.2-41.2s-133.9,26.6-133.9,26.6c0,0,181,47.6,121.8,108.8-63.4,65.4-126.2,21-143.1-2.2-18.5-25.5,31-12.3,31-12.3,123.5-35.3,186.9-81.7,226.1-72.3s25.9,45.3,25.9,45.3l-25.1,4.1s17.3-26.1-13.5-16.8c-30.8,9.4-88.3,56.9-70.6,74.5s74.5-48.8,74.5-48.8c0,0-35.6,48.9-5,43.9,30.7-5.1,53-24.3,53-24.3l29.3-55.2-31.5,86.7,83.9-73.4-19.3,67.4,71.8-70.6s-29.3,62.7-20.4,69.5c8.9,6.9,106-57.4,106-57.4l-118.2,179.3s-8.8-47.3,36.9-102.1,106.3-105.5,119.3-99.5,9.1,75.9-20.3,69c-29.4-6.9-30.5-20.4-30.5-20.4l62.4,7.7,50.6-30.8-8.7,24.7s48.4-17.7,71.8-50.3c23.4-32.6,28.2-78.3,28.2-78.3,0,0-32,23.1-70.7,81-38.7,57.9-47.5,77.4-34.2,83.7,13.2,6.3,79.1-36.1,79.1-36.1,0,0,38.5-54.9,51.2-44.8,12.7,10-26,68.5-42.5,63s19.2,42,78.6-6.3c0,0,51.2-210.1,165.6-196.6,114.4,13.5,91.7,83.4,91.7,83.4,0,0-70-9.9-108.8,23.8-38.9,33.7-70.7,71.6-55.3,90.3s67.5-7.4,87.8-26.5,64.3-79.7,64.3-79.7c0,0-153.2,302.9-187.9,290.6-51.7-18.5,35.6-124.4,169.6-214,101.3-67.7,90-90.7,116.7-77.4s-16.8,67.6-16.8,67.6c0,0-6.6-36.9-55.7,13.8-42.8,44.2-37.2,71.2,39.9,4.5-37.9,56.8,15.4,40.8,82.8-6.2,67.4-47.1,80.8-110.5,80.8-110.5,0,0-139.8,119.9-107.7,156.4,26.2,29.7,116.4-39.7,144.4-74.4,27.7-34.5,39.1-82.8,39.1-82.8,0,0-16,15.1-35.7,36.3-37.7,40.5-89,103-67.6,123.9,32.5,31.8,77.5-34.3,77.5-34.3l51-40.1s-20.4,45.4-44.7,61.2c2.2,18.5,30.6,26.1,73.1-15.4s52.5-55.9,52.5-55.9l3.7,45.7s-32.4,21-18.8,33.4c13.6,12.4,90.9-56.2,90.9-56.2,0,0-44,48.1-33.2,58.6s87-62.5,87-62.5c0,0-107.7,254.1-152.4,256.1-44.7,2.1-28.5-76.2,56.1-127.8,85.6-52.2,156.2-61.9,156.2-61.9"/>
+</mask>
+</svg></a></h1>
+<div id="mainimg"></div>
+</header>
 
-  <section id="contact">
-    <h2>联系</h2>
-    <ul class="links" id="links"></ul>
-  </section>
+<main>
 
-  <footer id="foot"></footer>
+<section class="bg1">
+
+<h2><span class="hosoku fade-in-text">Greetings</span><span class="blur">ご挨拶</span></h2>
+
+<p><span class="look">※当サイトはデモサイトです</span></p>
+<p>はじめまして、写真家のHanakoです。<br>
+写真を通じて、見過ごされがちな日常の美しさを捉え、それを皆様と共有することに情熱を注いでいます。<br>
+私のカメラは、私自身の感性と世界との対話です。<br>
+そこには、静寂の中でささやかな光が差し込む瞬間や、人々の生き生きとした表情があります。</p>
+<p>私の作品の中には、自然の風景から都市の喧騒、そして人々の日常まで、多様なシーンが含まれています。<br>
+それぞれの写真には、その場所や瞬間に込められた物語があります。<br>
+私は、視覚を通じて、皆様にそれらの物語を伝えたいと思っています。</p>
+<p>このウェブサイトでは、私の最新作品やプロジェクトの情報をご覧いただけます。<br>
+また、私の写真の背後にある思いやインスピレーションについてもお話しします。<br>
+写真は、私たちが見落としがちな美しさや瞬間を永遠に留める手段です。<br>
+皆様が私の作品を通じて、新たな発見や感動を経験していただけたら幸いです。</p>
+<p>心から感謝を込めて、<br>
+<span class="homemade-apple-regular large">2024.3.15 Hanako</span></p>
+
+<p class="animation-btn">
+<a href="profile.html" class="animation-btn-inner">Hanako Profile<i class="fas fa-angle-right"></i></a>
+</p>
+
+</section>
+
+<section>
+
+<h2><span class="hosoku fade-in-text">Activity Report</span><span class="blur">活動報告</span></h2>
+
+<dl class="news">
+
+<dt>2024/05/18<span>その他</span></dt>
+<dd>ソーシャルメディアアイコンのうち、X（旧Twitter）だけ出なかったのでアイコン画像にしていたのですが、Font Awesomeのバージョンアップで利用できました。</dd>
+
+<dt>2024/03/31<span>その他</span></dt>
+<dd><a href="https://template-party.com/file/bug.html#link20240330" target="_blank">スムースリンクに関する不具合対応（バージョン2024-1）。</a><br>
+pagetopのボタンを入れ忘れていたので追加。</dd>
+
+<dt>2024/03/22<span>その他</span></dt>
+<dd>アーティスト・ギャラリーサイト向け 無料ホームページテンプレート tp_gallery2 公開。</dd>
+
+<dt>2024/05/15<span>写真展</span></dt>
+<dd>新作展示会を地元ギャラリーで開催。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>2024/04/28<span>イベント</span></dt>
+<dd>写真愛好家との懇親会を実施。サンプルテキスト。</dd>
+
+<dt>2024/04/10<span>メディア</span></dt>
+<dd>地元メディアへの作品掲載。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>2024/03/10<span>写真展</span></dt>
+<dd>海外展示会で特別賞を受賞。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>2024/02/25<span>イベント</span></dt>
+<dd>子ども向け撮影ワークショップを開催。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>2024/01/29<span>メディア</span></dt>
+<dd>雑誌インタビューが掲載。サンプルテキスト。</dd>
+
+<dt>2023/12/25<span>イベント</span></dt>
+<dd>年末感謝祭を開催。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>2023/12/01<span>お知らせ</span></dt>
+<dd>期間限定のオンライン写真展をスタート。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+
+</dl>
+
+<div class="r">
+<p class="animation-btn">
+<a href="report.html" class="animation-btn-inner">もっとみる<i class="fas fa-angle-right"></i></a>
+</p>
 </div>
 
+</section>
+
+<section>
+
+<h2 class="dn"><span class="hosoku">Portfolio</span>作品集</h2>
+
+<div class="thumbnail-slide">
+<img src="images_gallery/1.jpg" alt="">
+<img src="images_gallery/2.jpg" alt="">
+<img src="images_gallery/3.jpg" alt="">
+<img src="images_gallery/1.jpg" alt="">
+<img src="images_gallery/2.jpg" alt="">
+<img src="images_gallery/3.jpg" alt="">
+</div>
+<!--/.thumbnail-slide-->
+
+</section>
+
+<section class="bg1">
+
+<h2>テンプレートのご利用前に必ずお読み下さい</h2>
+
+<h3>利用規約のご案内</h3>
+<p>このテンプレートは、<a href="https://template-party.com/">Template Party</a>にて無料配布している『アーティスト・ギャラリーサイト向け 無料ホームページテンプレート tp_gallery2』です。必ずダウンロード先のサイトの<a href="https://template-party.com/read.html">利用規約</a>をご一読の上でご利用下さい。</p>
+<p><strong class="color-check">HP最下部の著作表示『Web Design:Template-Party』は無断で削除しないで下さい。</strong><br>
+わざと見えなく加工する事も禁止です。</p>
+<p><strong class="color-check">下部の著作を外したい場合は</strong><br>
+<a href="https://template-party.com/">Template-Party</a>の<a href="https://template-party.com/member.html">ライセンス契約</a>を行う事でHP下部の著作を外す事ができます。</p>
+
+<h3>当テンプレートの詳しい使い方は</h3>
+<p><a href="about.html">こちらをご覧下さい。</a></p>
+
+</section>
+
+<section>
+
+<h2>【お知らせ】弊社運営サイト（Frames CMS）を使えば、コード編集不要！</h2>
+<p>コード編集に挫折しそうなお客様向け。コードを開く必要がなく、管理ページから楽々更新。<br>
+まずは、<a href="https://frames-cms.com/?utm_source=template-party&amp;utm_medium=banner&amp;utm_campaign=template" target="_blank" rel="noopener">Frames CMS</a> のFree（無料版）を使ってみて下さい。<br>
+業者様のクライアントへのご活用にも。</p>
+<p><a href="https://frames-cms.com/?utm_source=template-party&amp;utm_medium=banner&amp;utm_campaign=template" target="_blank" rel="noopener"><img src="https://template-party.com/images/banner/banner_frames_cms_template.jpg" alt="着せ替えできるCMS｜Frames CMS" width="700"></a></p>
+
+</section>
+
+
+</main>
+
+<footer>
+<small>Copyright&copy; <a href="index.html">Sample Gallery</a> All Rights Reserved.</small>
+<span class="pr"><a href="https://template-party.com/" target="_blank" rel="noopener nofollow">《Web Design:Template-Party》</a></span>
+</footer>
+
+</div>
+<!--/#container-->
+
+<!--ページの上部へ戻るボタン-->
+<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+<!--開閉ブロック-->
+<div id="menubar">
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="profile.html">Profile</a></li>
+<li><a href="report.html">Activity Report</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+</ul>
+</nav>
+
+<ul class="icons">
+<li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+<li><a href="#"><i class="fab fa-line"></i></a></li>
+<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+</ul>
+
+</div>
+<!--/#menubar-->
+
+<!--開閉ボタン（ハンバーガーアイコン）-->
+<div id="menubar_hdr_inner">
+<div id="menubar_hdr">
+<span></span><span></span><span></span>
+</div>
+</div>
+
+<!--jQueryの読み込み-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!--lightbox用jsファイルの読み込み-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox-plus-jquery.min.js"></script>
+
+<!--スライドショー（slick）-->
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="js/slick-thumbnail.js"></script>
+<script src="js/slick.js"></script>
+
+<!--パララックス（inview）-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+<script src="js/jquery.inview_set.js"></script>
+
+<!--このテンプレート専用のスクリプト-->
+<script src="js/main.js"></script>
+
+<!--ロゴアニメーション-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.6/vivus.min.js"></script>
 <script>
-/* ====== 只需修改这里的内容 ====== */
-const SITE = {
-  name: "Chancy",
-  tagline: "伦敦国王学院 PEEM 硕士在读，关注政策、产业与企业决策。",
-  intro: "本科毕业于上海财经大学投资学专业，有市场策划工作经历。这里记录我的研究、项目与活动。",
-  works: [
-    { title: "政府补贴与中国汽车上市公司对外直接投资（硕士论文）", year: "2026", cat: "研究", desc: "研究政府补贴如何影响汽车企业的海外投资决策。", url: "" },
-    { title: "示例项目：市场策划案例", year: "2025", cat: "项目", desc: "用一两句话说明你做了什么、结果如何。", url: "https://github.com/" },
-    { title: "示例文章：课程分析报告", year: "2025", cat: "写作", desc: "替换成你的真实作品，链接可留空。", url: "" }
-  ],
-  activities: [
-    { date: "2025.09 – 至今", title: "King’s College London · PEEM 硕士", desc: "政治、经济与管理方向。" },
-    { date: "示例日期", title: "活动或比赛名称", desc: "写下你的角色和收获。" }
-  ],
-  links: [
-    { label: "GitHub", url: "https://github.com/你的用户名" },
-    { label: "邮箱", url: "mailto:你的邮箱@example.com" },
-    { label: "LinkedIn", url: "https://www.linkedin.com/in/你的主页" }
-  ]
-};
-/* ====== 以下无需改动 ====== */
-const $ = id => document.getElementById(id);
-$("name").textContent = SITE.name;
-$("tagline").textContent = SITE.tagline;
-$("intro").textContent = SITE.intro;
-document.title = SITE.name + " · 作品与活动";
-
-const cats = ["全部", ...new Set(SITE.works.map(w => w.cat))];
-let current = "全部";
-function el(tag, props = {}, kids = []) {
-  const e = document.createElement(tag);
-  Object.assign(e, props);
-  kids.forEach(k => e.append(k));
-  return e;
-}
-function renderWorks() {
-  const box = $("workList"); box.replaceChildren();
-  SITE.works.filter(w => current === "全部" || w.cat === current).forEach(w => {
-    const h = el("h3", {}, [w.url ? el("a", { href: w.url, target: "_blank", rel: "noopener", textContent: w.title }) : w.title]);
-    box.append(el("article", { className: "work" }, [
-      h, el("time", { textContent: w.year }),
-      el("p", { textContent: w.desc }),
-      el("span", { className: "tag", textContent: w.cat })
-    ]));
-  });
-}
-function renderFilters() {
-  const box = $("filters"); box.replaceChildren();
-  cats.forEach(c => {
-    const b = el("button", { type: "button", textContent: c });
-    b.setAttribute("aria-pressed", String(c === current));
-    b.onclick = () => { current = c; renderFilters(); renderWorks(); };
-    box.append(b);
-  });
-}
-renderFilters(); renderWorks();
-
-SITE.activities.forEach(a => $("timeline").append(el("li", {}, [
-  el("time", { textContent: a.date }), el("b", { textContent: a.title }), el("p", { textContent: a.desc })
-])));
-SITE.links.forEach(l => $("links").append(el("li", {}, [el("a", { href: l.url, textContent: l.label })])));
-$("foot").textContent = "© " + new Date().getFullYear() + " " + SITE.name;
+new Vivus('svg-logo', {
+start:'autostart',
+type: 'scenario-sync',
+duration: 150,
+forceRender: false,
+});
 </script>
+
 </body>
 </html>
